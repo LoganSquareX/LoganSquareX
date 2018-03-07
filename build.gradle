@@ -4,14 +4,13 @@ buildscript {
     }
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
-        classpath 'com.android.tools.build:gradle:2.3.0'
     }
 }
 
 allprojects {
     apply plugin: 'idea'
 
-    group = 'com.bluelinelabs'
+    group = 'io.logansquarex'
     version = '1.3.7'
     repositories {
         jcenter()

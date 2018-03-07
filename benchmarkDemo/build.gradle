@@ -1,19 +1,34 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+
+
+import com.android.builder.Version
+
+
+int androidBuildToolVersion() {
+
+    def versionNumber = VersionNumber.parse(Version.ANDROID_GRADLE_PLUGIN_VERSION);
+    return versionNumber.getMajor()
+}
+
+
+if (androidBuildToolVersion() == 2) {
+    apply plugin: 'com.neenbedankt.android-apt'
+}
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
 
     packagingOptions {
         exclude 'META-INF/LICENSE'
@@ -37,14 +52,18 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // LoganSquare annotation processor
-    apt project(":processor")
+    if (androidBuildToolVersion() == 3) {
+        annotationProcessor project(":processor")
+    } else {
+        apt project(":processor")
+    }
     // LoganSquare runtime library
     compile project(':core')
     // Jackson libraries for comparison
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.10'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.0'
     // GSON library for comparison
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.google.code.gson:gson:2.8.2'
     // Moshi library for camparison
     compile 'com.squareup.moshi:moshi:1.0.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
