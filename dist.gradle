@@ -76,7 +76,7 @@
         pkg {
             repo = 'LoganSquareX'
             userOrg = 'logansquarex'
-            name = 'LoganSquareX'
+            name = project.ext.artifactId
             desc = 'Screaming fast JSON parsing and serialization library for Android.'
             websiteUrl = 'https://github.com/LoganSquareX/LoganSquareX'
             issueTrackerUrl = 'https://github.com/LoganSquareX/LoganSquareX/issues'
