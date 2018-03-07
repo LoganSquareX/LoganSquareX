@@ -65,9 +65,12 @@
     bintray {
         Properties properties = new Properties()
         File propFile = "${System.properties['user.home']}${File.separator}.gradle${File.separator}bintray.properties" as File
-        properties.load(propFile.newDataInputStream())
-        user = properties.getProperty("bintray.user")
-        key = properties.getProperty("bintray.apikey")
+       if (propFile.exists())
+       {
+           properties.load(propFile.newDataInputStream())
+           user = properties.getProperty("bintray.user")
+           key = properties.getProperty("bintray.apikey")
+       }
         publications = ['mavenJava']
 
         dryRun = false
