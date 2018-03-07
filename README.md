@@ -1,5 +1,5 @@
 
-#LoganSquareX
+# LoganSquareX
 
 base on logansquare
 
@@ -14,7 +14,7 @@ Don't believe it could improve upon Jackson Databind's or GSON's performance tha
 
 ![Benchmarks](docs/benchmarks.jpg)
 
-##Download
+## Download
 
 Note that Gradle is the only supported build configuration for LoganSquare. To add the library to your app's build.gradle file.
 
@@ -47,10 +47,11 @@ Using LoganSquare is about as easy as it gets. Here are a few docs to get you st
  * [Supporting custom types](docs/TypeConverters.md)
 
 ##Proguard
+
 Like all libraries that generate dynamic code, Proguard might think some classes are unused and remove them. To prevent this, the following lines can be added to your proguard config file.
 
 ```
--keep class com.bluelinelabs.logansquare.** { *; }
+-keep class io.logansquarex.core.** { *; }
 -keep @io.logansquarex.core.annotation.JsonObject class *
 -keep class **$$JsonObjectMapper { *; }
 ```
@@ -65,8 +66,10 @@ We're BlueLine Labs, a mobile app development company based in Chicago. We love 
  * [Instagram's ig-json-parser](https://github.com/Instagram/ig-json-parser) for giving us the idea for this project.
  * [Jake Wharton's Butterknife](https://github.com/JakeWharton/butterknife) for being a great reference for annotation processing and code generation.
 
-##License
+## License
+
     Copyright 2018 LoganSquareX
+ 
     Copyright 2015 BlueLine Labs, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
