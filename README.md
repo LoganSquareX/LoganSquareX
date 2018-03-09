@@ -1,5 +1,6 @@
 
 # LoganSquareX
+![build status](https://travis-ci.org/LoganSquareX/LoganSquareX.svg?branch=master)
 
 base on logansquare
 
@@ -70,7 +71,7 @@ dependencies {
 ```
 For the curious, the buildscript and apply plugin lines add the [apt plugin](https://bitbucket.org/hvisser/android-apt), which is what allows us to do compile-time annotation processing. The first dependency is what tells Gradle to process your JSON annotations, and the second dependency is our tiny 19kb runtime library that interfaces with the generated code for you.
 
-##Usage
+## Usage
 
 Using LoganSquare is about as easy as it gets. Here are a few docs to get you started:
 
@@ -82,7 +83,7 @@ Using LoganSquare is about as easy as it gets. Here are a few docs to get you st
 ## Warn
 When using in Spring need to validate @Configuration classes,Specifically refer to this [library(spring-configuration-validation-processor)](https://github.com/pellaton/spring-configuration-validation-processor)
 
-##Proguard
+## Proguard
 
 Like all libraries that generate dynamic code, Proguard might think some classes are unused and remove them. To prevent this, the following lines can be added to your proguard config file.
 
@@ -92,11 +93,11 @@ Like all libraries that generate dynamic code, Proguard might think some classes
 -keep class **$$JsonObjectMapper { *; }
 ```
 
-##Why LoganSquareX?
+## Why LoganSquareX?
 
 We're BlueLine Labs, a mobile app development company based in Chicago. We love this city so much that we named our company after the blue line of the iconic 'L.' And what's one of the most popular stops on the blue line? Well, that would be Logan Square of course. Does it have anything to do with JSON? Nope, but we're okay with that.
 
-##Props
+## Props
 
  * [Jackson's streaming API](https://github.com/FasterXML/jackson-core) for being a super-fast, awesome base for this project.
  * [Instagram's ig-json-parser](https://github.com/Instagram/ig-json-parser) for giving us the idea for this project.
