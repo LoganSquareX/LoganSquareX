@@ -4,6 +4,6 @@ ext.artifactId = 'logansquareX'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 dependencies {
-    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.10'
 }
 apply from: "../dist.gradle"
